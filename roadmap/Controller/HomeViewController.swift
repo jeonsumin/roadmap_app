@@ -7,17 +7,10 @@
 
 import UIKit
 
-class HomeViewController:UIViewController {
-    
-    
-    //MARK: - Init
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureUIComponents()
-    }
+class HomeViewController:CommonViewController {
     
     //MARK: - Helper
-    func configureUIComponents(){
+    override func configureUIComponents(){
         view.backgroundColor = .systemBackground
     }
 }

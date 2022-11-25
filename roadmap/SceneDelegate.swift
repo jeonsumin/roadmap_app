@@ -8,19 +8,40 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
-
+    
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         let homeViewController = HomeViewController()
-        let navigationController = UINavigationController(rootViewController: homeViewController)
-        window?.rootViewController = navigationController
+        let searchViewController = SearchViewController()
+        let favoriteViewController = FavoriteViewController()
+        
+        let HomeNav = UINavigationController(rootViewController: homeViewController)
+        let searchNav = UINavigationController(rootViewController: searchViewController)
+        let favoriteNav = UINavigationController(rootViewController: favoriteViewController)
+        
+        homeViewController.title = "홈"
+        homeViewController.navigationController?.navigationBar.prefersLargeTitles = true
+        searchViewController.title = "검색"
+        searchViewController.navigationController?.navigationBar.prefersLargeTitles = true
+        favoriteViewController.title = "즐겨찾기"
+        favoriteViewController.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        
+        let tabBarController = UITabBarController()
+        tabBarController.setViewControllers([HomeNav, searchNav, favoriteNav], animated: false)
+        tabBarController.tabBar.tintColor = .black
+        tabBarController.tabBar.items![0].image = UIImage(systemName: "house")
+        
+        tabBarController.tabBar.items![1].image = UIImage(systemName: "sparkle.magnifyingglass")
+        tabBarController.tabBar.items![2].image = UIImage(systemName: "pin")
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
-
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
