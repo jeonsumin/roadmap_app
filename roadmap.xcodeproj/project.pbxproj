@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76001F39293441360036DED5 /* UIColer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76001F38293441360036DED5 /* UIColer+.swift */; };
+		76001F3C29344CDA0036DED5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 76001F3B29344CDA0036DED5 /* SDWebImage */; };
+		76001F3E29346DFE0036DED5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76001F3D29346DFE0036DED5 /* Category.swift */; };
+		76001F4029347CFC0036DED5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76001F3F29347CFC0036DED5 /* CategoryCell.swift */; };
+		76001F43293496F00036DED5 /* CreateCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76001F42293496F00036DED5 /* CreateCourseViewController.swift */; };
+		76001F452934988F0036DED5 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76001F442934988F0036DED5 /* PlaceCell.swift */; };
 		76701902293057AD004C6298 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76701901293057AD004C6298 /* AppDelegate.swift */; };
 		76701904293057AD004C6298 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76701903293057AD004C6298 /* SceneDelegate.swift */; };
 		76701909293057AD004C6298 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76701907293057AD004C6298 /* Main.storyboard */; };
@@ -18,12 +24,17 @@
 		7670191D29308B55004C6298 /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670191C29308B55004C6298 /* CommonViewController.swift */; };
 		7670192429309CB4004C6298 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192329309CB4004C6298 /* Course.swift */; };
 		7670192729309DE0004C6298 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7670192629309DE0004C6298 /* Alamofire */; };
-		7670192929309E1E004C6298 /* Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192829309E1D004C6298 /* Contents.swift */; };
+		7670192929309E1E004C6298 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192829309E1D004C6298 /* Constants.swift */; };
 		7670192D29309F74004C6298 /* RoadmapApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192C29309F74004C6298 /* RoadmapApi.swift */; };
 		7670192F2930ABB3004C6298 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192E2930ABB3004C6298 /* HomeViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76001F38293441360036DED5 /* UIColer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColer+.swift"; sourceTree = "<group>"; };
+		76001F3D29346DFE0036DED5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		76001F3F29347CFC0036DED5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		76001F42293496F00036DED5 /* CreateCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCourseViewController.swift; sourceTree = "<group>"; };
+		76001F442934988F0036DED5 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		767018FE293057AD004C6298 /* roadmap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roadmap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76701901293057AD004C6298 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76701903293057AD004C6298 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +47,7 @@
 		7670191A29308B1D004C6298 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		7670191C29308B55004C6298 /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
 		7670192329309CB4004C6298 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
-		7670192829309E1D004C6298 /* Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contents.swift; sourceTree = "<group>"; };
+		7670192829309E1D004C6298 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7670192C29309F74004C6298 /* RoadmapApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapApi.swift; sourceTree = "<group>"; };
 		7670192E2930ABB3004C6298 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76001F3C29344CDA0036DED5 /* SDWebImage in Frameworks */,
 				7670192729309DE0004C6298 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76001F372934412B0036DED5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				76001F38293441360036DED5 /* UIColer+.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		767018F5293057AD004C6298 = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +92,7 @@
 		76701900293057AD004C6298 /* roadmap */ = {
 			isa = PBXGroup;
 			children = (
+				76001F372934412B0036DED5 /* Extension */,
 				7670192A29309F58004C6298 /* Api */,
 				7670192229309C7A004C6298 /* Model */,
 				7670191E29308CE2004C6298 /* Utiles */,
@@ -91,6 +112,9 @@
 			children = (
 				7670191C29308B55004C6298 /* CommonViewController.swift */,
 				76701916293070B8004C6298 /* HomeViewController.swift */,
+				76001F442934988F0036DED5 /* PlaceCell.swift */,
+				76001F42293496F00036DED5 /* CreateCourseViewController.swift */,
+				76001F3F29347CFC0036DED5 /* CategoryCell.swift */,
 				7670192E2930ABB3004C6298 /* HomeViewCell.swift */,
 				7670191829308A9F004C6298 /* SearchViewController.swift */,
 				7670191A29308B1D004C6298 /* FavoriteViewController.swift */,
@@ -101,7 +125,7 @@
 		7670191E29308CE2004C6298 /* Utiles */ = {
 			isa = PBXGroup;
 			children = (
-				7670192829309E1D004C6298 /* Contents.swift */,
+				7670192829309E1D004C6298 /* Constants.swift */,
 			);
 			path = Utiles;
 			sourceTree = "<group>";
@@ -110,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				7670192329309CB4004C6298 /* Course.swift */,
+				76001F3D29346DFE0036DED5 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,6 +165,7 @@
 			name = roadmap;
 			packageProductDependencies = (
 				7670192629309DE0004C6298 /* Alamofire */,
+				76001F3B29344CDA0036DED5 /* SDWebImage */,
 			);
 			productName = roadmap;
 			productReference = 767018FE293057AD004C6298 /* roadmap.app */;
@@ -171,6 +197,7 @@
 			mainGroup = 767018F5293057AD004C6298;
 			packageReferences = (
 				7670192529309DE0004C6298 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				76001F3A29344CDA0036DED5 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 767018FF293057AD004C6298 /* Products */;
 			projectDirPath = "";
@@ -201,14 +228,19 @@
 			files = (
 				7670192D29309F74004C6298 /* RoadmapApi.swift in Sources */,
 				7670192429309CB4004C6298 /* Course.swift in Sources */,
+				76001F43293496F00036DED5 /* CreateCourseViewController.swift in Sources */,
 				76701902293057AD004C6298 /* AppDelegate.swift in Sources */,
 				76701904293057AD004C6298 /* SceneDelegate.swift in Sources */,
 				7670191929308A9F004C6298 /* SearchViewController.swift in Sources */,
 				7670191D29308B55004C6298 /* CommonViewController.swift in Sources */,
+				76001F39293441360036DED5 /* UIColer+.swift in Sources */,
 				76701917293070B8004C6298 /* HomeViewController.swift in Sources */,
 				7670192F2930ABB3004C6298 /* HomeViewCell.swift in Sources */,
 				7670191B29308B1D004C6298 /* FavoriteViewController.swift in Sources */,
-				7670192929309E1E004C6298 /* Contents.swift in Sources */,
+				76001F4029347CFC0036DED5 /* CategoryCell.swift in Sources */,
+				7670192929309E1E004C6298 /* Constants.swift in Sources */,
+				76001F3E29346DFE0036DED5 /* Category.swift in Sources */,
+				76001F452934988F0036DED5 /* PlaceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +458,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		76001F3A29344CDA0036DED5 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		7670192529309DE0004C6298 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -437,6 +477,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		76001F3B29344CDA0036DED5 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76001F3A29344CDA0036DED5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		7670192629309DE0004C6298 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7670192529309DE0004C6298 /* XCRemoteSwiftPackageReference "Alamofire" */;

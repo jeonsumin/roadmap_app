@@ -2,20 +2,38 @@
 //  Roadmap.swift
 //  roadmap
 //
-//  Created by deepvisions on 2022/11/25.
+//  Created by Terry on 2022/11/25.
 //
 
 import UIKit
 import Alamofire
 
 class RoadmapApi {
-    static let shard = RoadmapApi()
+//    static let shard = RoadmapApi(url: <#String#>, method: <#HTTPMethod#>, parameters: <#Parameters#>)
+    
+    let url: String
+    let method: HTTPMethod
+    var parameters: Parameters
+    var headers: HTTPHeaders? = nil
+    
+    init(url: String, method: HTTPMethod, parameters: Parameters) {
+        self.url = url
+        self.method = method
+        self.parameters = parameters
+        self.headers = nil
+    }
+    
+    init(path: String, method: HTTPMethod){
+        url = Constants.BASE_URL + path
+        self.method = method
+        self.parameters = ["":""]
+        self.headers = nil
+    }
     
     //전체 코스 호출
     public func getCourseList(completionHandler: @escaping (Result<[Course],Error>) -> Void){
-//    private func getCourseList(){
-        let url = Contnets.BASE_URL + "/api/getAllcourseList"
-        AF.request(url, method: .get, parameters: nil)
+        let url = url
+        AF.request(url, method: method, parameters: nil)
             .responseData(completionHandler: { response in
                 switch response.result {
                 case .success(let data ):
@@ -30,5 +48,24 @@ class RoadmapApi {
                     completionHandler(.failure(err))
                 }
             })
+    }
+    
+    //지역 카테고리 호출
+    public func getCetegoryList(completion: @escaping (Result<[Category], Error>) -> Void){
+        AF.request(url,method: method,parameters: nil)
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do{
+                        let decoder = JSONDecoder()
+                        let value = try decoder.decode([Category].self, from: data)
+                        completion(.success(value))
+                    }catch(let error ){
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
     }
 }
