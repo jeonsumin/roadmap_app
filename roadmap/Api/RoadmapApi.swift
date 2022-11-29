@@ -23,6 +23,12 @@ class RoadmapApi {
         self.headers = nil
     }
     
+    init(path:String, method:HTTPMethod,parameter:Parameters){
+        url = Constants.BASE_URL + path
+        self.method = method
+        self.parameters = parameter
+        self.headers = nil
+    }
     init(path: String, method: HTTPMethod){
         url = Constants.BASE_URL + path
         self.method = method
@@ -62,6 +68,24 @@ class RoadmapApi {
                         completion(.success(value))
                     }catch(let error ){
                         completion(.failure(error))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+    
+    public func getPlaceList(completion: @escaping (Result<[Place],Error>) -> Void) {
+        AF.request(url,method: method,parameters: nil)
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do{
+                        let decoder = JSONDecoder()
+                        let value = try decoder.decode([Place].self, from: data)
+                        completion(.success(value))
+                    }catch(let e){
+                        completion(.failure(e))
                     }
                 case .failure(let error):
                     completion(.failure(error))

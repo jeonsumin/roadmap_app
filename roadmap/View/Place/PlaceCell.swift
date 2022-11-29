@@ -12,7 +12,7 @@ class PlaceCell: UICollectionViewCell {
     lazy var thumbNailImage: UIImageView = {
         let imgView = UIImageView()
         imgView.backgroundColor = .systemGray
-        imgView.contentMode = .scaleAspectFit
+        imgView.contentMode = .scaleAspectFill
         imgView.clipsToBounds = true
         
         return imgView
@@ -20,26 +20,24 @@ class PlaceCell: UICollectionViewCell {
     
     lazy var placeName: UILabel = {
         let lb = UILabel()
-        lb.text = "솥뚜껑생삼겹살"
         lb.font = .systemFont(ofSize: 20,weight: .bold)
         lb.textColor = .label
         lb.sizeToFit()
         return lb
     }()
     
+    
     lazy var placeAddress: UILabel = {
         let lb = UILabel()
-        lb.text = "성북구 동선동 4가"
-        lb.font = .systemFont(ofSize: 14,weight: .bold)
-        lb.textColor = .systemGray3
+        lb.font = .systemFont(ofSize: 14,weight: .semibold)
+        lb.textColor = .label
         return lb
     }()
     
     lazy var placeMcidName: UILabel = {
         let lb = UILabel()
-        lb.text = "음식점"
         lb.font = .systemFont(ofSize: 14,weight: .regular)
-        lb.textColor = .label
+        lb.textColor = .systemGray2
         return lb
     }()
     

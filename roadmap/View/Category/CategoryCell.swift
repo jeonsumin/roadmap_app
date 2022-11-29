@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CategoryCell: UICollectionViewCell {
     //MARK: -Propertiesk
@@ -14,13 +15,15 @@ class CategoryCell: UICollectionViewCell {
         imgView.backgroundColor = .systemGray3
         imgView.contentMode = .scaleAspectFill
         imgView.clipsToBounds = true
+        let url = URL(string: "https://picsum.photos/1920/1084")!
+        imgView.sd_setImage(with: url)
         imgView.layer.cornerRadius = 40
         
         return imgView
     }()
     lazy var categoryTitle: UILabel = {
         let lb = UILabel()
-        lb.font = .systemFont(ofSize: 14,weight: .bold)
+        lb.font = .systemFont(ofSize: 14, weight: .bold)
         lb.textColor = .white
         
         return lb
