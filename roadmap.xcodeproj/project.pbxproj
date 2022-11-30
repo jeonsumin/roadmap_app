@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		76001F39293441360036DED5 /* UIColer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76001F38293441360036DED5 /* UIColer+.swift */; };
-		76001F3C29344CDA0036DED5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 76001F3B29344CDA0036DED5 /* SDWebImage */; };
 		76001F3E29346DFE0036DED5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76001F3D29346DFE0036DED5 /* Category.swift */; };
 		76001F4029347CFC0036DED5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76001F3F29347CFC0036DED5 /* CategoryCell.swift */; };
 		76001F43293496F00036DED5 /* CreateCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76001F42293496F00036DED5 /* CreateCourseViewController.swift */; };
@@ -26,13 +25,15 @@
 		7670191929308A9F004C6298 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670191829308A9F004C6298 /* SearchViewController.swift */; };
 		7670191B29308B1D004C6298 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670191A29308B1D004C6298 /* FavoriteViewController.swift */; };
 		7670192429309CB4004C6298 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192329309CB4004C6298 /* Course.swift */; };
-		7670192729309DE0004C6298 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7670192629309DE0004C6298 /* Alamofire */; };
 		7670192929309E1E004C6298 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192829309E1D004C6298 /* Constants.swift */; };
 		7670192D29309F74004C6298 /* RoadmapApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192C29309F74004C6298 /* RoadmapApi.swift */; };
 		7670192F2930ABB3004C6298 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192E2930ABB3004C6298 /* HomeViewCell.swift */; };
+		FBC5816EE097067E4F5B1050 /* Pods_roadmap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111DD32FC155BC9AC5B10268 /* Pods_roadmap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		111DD32FC155BC9AC5B10268 /* Pods_roadmap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_roadmap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E83D5591A6748E099A51154 /* Pods-roadmap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-roadmap.debug.xcconfig"; path = "Target Support Files/Pods-roadmap/Pods-roadmap.debug.xcconfig"; sourceTree = "<group>"; };
 		76001F38293441360036DED5 /* UIColer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColer+.swift"; sourceTree = "<group>"; };
 		76001F3D29346DFE0036DED5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		76001F3F29347CFC0036DED5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -56,6 +57,7 @@
 		7670192829309E1D004C6298 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7670192C29309F74004C6298 /* RoadmapApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapApi.swift; sourceTree = "<group>"; };
 		7670192E2930ABB3004C6298 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		B29C82AFC302B11093946254 /* Pods-roadmap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-roadmap.release.xcconfig"; path = "Target Support Files/Pods-roadmap/Pods-roadmap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,14 +65,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76001F3C29344CDA0036DED5 /* SDWebImage in Frameworks */,
-				7670192729309DE0004C6298 /* Alamofire in Frameworks */,
+				FBC5816EE097067E4F5B1050 /* Pods_roadmap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52F04C5A5D49DE140D7FB3D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6E83D5591A6748E099A51154 /* Pods-roadmap.debug.xcconfig */,
+				B29C82AFC302B11093946254 /* Pods-roadmap.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		76001F372934412B0036DED5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +187,8 @@
 			children = (
 				76701900293057AD004C6298 /* roadmap */,
 				767018FF293057AD004C6298 /* Products */,
+				52F04C5A5D49DE140D7FB3D0 /* Pods */,
+				8C2835E443CBCA54F62B9CDF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,6 +257,14 @@
 			path = Api;
 			sourceTree = "<group>";
 		};
+		8C2835E443CBCA54F62B9CDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				111DD32FC155BC9AC5B10268 /* Pods_roadmap.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,19 +272,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76701912293057B1004C6298 /* Build configuration list for PBXNativeTarget "roadmap" */;
 			buildPhases = (
+				F20640E7405DA116B0A2375F /* [CP] Check Pods Manifest.lock */,
 				767018FA293057AD004C6298 /* Sources */,
 				767018FB293057AD004C6298 /* Frameworks */,
 				767018FC293057AD004C6298 /* Resources */,
+				48961DF70557A8D10408AC38 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = roadmap;
-			packageProductDependencies = (
-				7670192629309DE0004C6298 /* Alamofire */,
-				76001F3B29344CDA0036DED5 /* SDWebImage */,
-			);
 			productName = roadmap;
 			productReference = 767018FE293057AD004C6298 /* roadmap.app */;
 			productType = "com.apple.product-type.application";
@@ -284,7 +303,7 @@
 				};
 			};
 			buildConfigurationList = 767018F9293057AD004C6298 /* Build configuration list for PBXProject "roadmap" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -292,10 +311,6 @@
 				Base,
 			);
 			mainGroup = 767018F5293057AD004C6298;
-			packageReferences = (
-				7670192529309DE0004C6298 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				76001F3A29344CDA0036DED5 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-			);
 			productRefGroup = 767018FF293057AD004C6298 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -317,6 +332,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48961DF70557A8D10408AC38 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-roadmap/Pods-roadmap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-roadmap/Pods-roadmap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-roadmap/Pods-roadmap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F20640E7405DA116B0A2375F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-roadmap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		767018FA293057AD004C6298 /* Sources */ = {
@@ -482,6 +539,7 @@
 		};
 		76701913293057B1004C6298 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E83D5591A6748E099A51154 /* Pods-roadmap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -510,6 +568,7 @@
 		};
 		76701914293057B1004C6298 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B29C82AFC302B11093946254 /* Pods-roadmap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -558,38 +617,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		76001F3A29344CDA0036DED5 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		7670192529309DE0004C6298 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		76001F3B29344CDA0036DED5 /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 76001F3A29344CDA0036DED5 /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
-		7670192629309DE0004C6298 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7670192529309DE0004C6298 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 767018F6293057AD004C6298 /* Project object */;
 }
