@@ -78,7 +78,6 @@
 				6E83D5591A6748E099A51154 /* Pods-roadmap.debug.xcconfig */,
 				B29C82AFC302B11093946254 /* Pods-roadmap.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -182,6 +181,13 @@
 			path = Place;
 			sourceTree = "<group>";
 		};
+		761DB6EC293DE0BE003D850A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		767018F5293057AD004C6298 = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +228,7 @@
 		76701915293070AD004C6298 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				761DB6EC293DE0BE003D850A /* Profile */,
 				76001F5D2935EE0E0036DED5 /* Place */,
 				76001F592935EB990036DED5 /* Home */,
 				76001F5C2935EBBB0036DED5 /* Course */,

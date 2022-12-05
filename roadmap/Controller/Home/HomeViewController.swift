@@ -8,6 +8,8 @@
 import UIKit
 import SwiftUI
 import SDWebImage
+import Alamofire
+import NaverThirdPartyLogin
 
 let courseCellIdentifier = "courseCell"
 let categoryCellIdentifier = "categoryCell"
@@ -16,6 +18,9 @@ let contentHeaderIdentifier = "headerCell"
 
 
 class HomeViewController: UICollectionViewController {
+   
+    //MARK: - Properties
+    let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
     
     var courseList = [Course]() {
         didSet {
@@ -35,10 +40,31 @@ class HomeViewController: UICollectionViewController {
             collectionView.reloadData()
         }
     }
+    
+    lazy var floatingView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(floatingButton)
+        return view
+    }()
+    
+    lazy var floatingButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "floating"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.semanticContentAttribute = .forceRightToLeft
+        button.addTarget(self, action: #selector(tappedNaverLogin), for: .touchUpInside)
+        return button
+    }()
+    
+    //MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUIComponents()
+        
+        naverLoginInstance?.delegate = self
         
         
         ///get Data
@@ -69,6 +95,13 @@ class HomeViewController: UICollectionViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image:UIImage(named: "logo"), style: .done, target: self, action: nil)
         navigationItem.leftBarButtonItem?.tintColor = .label
+        
+        view.addSubview(floatingView)
+        floatingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
+        floatingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        floatingView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        floatingView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
     }
     
     //MARK: - Function
@@ -103,6 +136,23 @@ class HomeViewController: UICollectionViewController {
             }
         }
     }
+    
+    private func getNaverPlaceList(){
+        
+        guard let accessToken = naverLoginInstance?.isValidAccessTokenExpireTimeNow() else { return }
+        if !accessToken {
+            return
+        }
+        
+        let url = URL(string: "https://map.naver.com/v5/api/bookmark/sync")!
+//        let url = URL(string: "https://openapi.naver.com/v1/nid/me")!
+        AF.request(url,method: .get,parameters: nil,encoding: JSONEncoding.default)
+            .responseJSON { response in
+                guard let body = response.value as? [String:Any] else { return }
+                print("body :: \(body)")
+            }
+    }
+    
     
     private func layout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { [weak self ] sectionNumber, environment -> NSCollectionLayoutSection? in
@@ -192,12 +242,20 @@ class HomeViewController: UICollectionViewController {
         return sectionHeader
     }
     
+    
+    //MARK: - Object Function
     ///create Course
     @objc func addCouse(){
         let createViewController = CreateCourseViewController()
         let navVC = UINavigationController(rootViewController: createViewController)
         navVC.modalPresentationStyle = .overCurrentContext
         self.present(navVC, animated: true)
+    }
+    
+    @objc
+    func tappedNaverLogin(){
+        naverLoginInstance?.requestThirdPartyLogin()
+        
     }
     
     private func detailSidoData(sido: String) {
@@ -294,9 +352,31 @@ extension HomeViewController {
     }
 }
 
+extension HomeViewController: NaverThirdPartyLoginConnectionDelegate {
+    
+    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+        NSLog("@@@  Naver Login Success @@@")
+    }
+    
+    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
+        print("@@@ Naver Token : %c \(naverLoginInstance?.accessToken!)")
+        getNaverPlaceList()
+    }
+    
+    func oauth20ConnectionDidFinishDeleteToken() {
+        NSLog("@@@ Naver Logout")
+    }
+    
+    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
+        NSLog("@@@ Naver Error : %c ", error.localizedDescription)
+    }
+    
+    
+}
 
 
-//SwiftUI를 활용한 미리보기
+
+//MARK: - SwiftUI를 활용한 미리보기
 struct HomeViewController_Previews: PreviewProvider {
     static var previews: some View {
         HomeViewControllerRepresentable().edgesIgnoringSafeArea(.all)
