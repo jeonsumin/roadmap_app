@@ -28,6 +28,10 @@
 		7670192929309E1E004C6298 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192829309E1D004C6298 /* Constants.swift */; };
 		7670192D29309F74004C6298 /* RoadmapApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192C29309F74004C6298 /* RoadmapApi.swift */; };
 		7670192F2930ABB3004C6298 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670192E2930ABB3004C6298 /* HomeViewCell.swift */; };
+		76F41D60293EFF2C00302332 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F41D5F293EFF2C00302332 /* BottomSheetViewController.swift */; };
+		76F41D62293F33BE00302332 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F41D61293F33BE00302332 /* PlaceListView.swift */; };
+		76F41D64293F344800302332 /* BaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F41D63293F344800302332 /* BaceView.swift */; };
+		76F41D662941996800302332 /* DetailPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F41D652941996800302332 /* DetailPlaceCell.swift */; };
 		FBC5816EE097067E4F5B1050 /* Pods_roadmap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 111DD32FC155BC9AC5B10268 /* Pods_roadmap.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +61,10 @@
 		7670192829309E1D004C6298 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7670192C29309F74004C6298 /* RoadmapApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapApi.swift; sourceTree = "<group>"; };
 		7670192E2930ABB3004C6298 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		76F41D5F293EFF2C00302332 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		76F41D61293F33BE00302332 /* PlaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
+		76F41D63293F344800302332 /* BaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaceView.swift; sourceTree = "<group>"; };
+		76F41D652941996800302332 /* DetailPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceCell.swift; sourceTree = "<group>"; };
 		B29C82AFC302B11093946254 /* Pods-roadmap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-roadmap.release.xcconfig"; path = "Target Support Files/Pods-roadmap/Pods-roadmap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +105,7 @@
 				76001F552935EB470036DED5 /* Category */,
 				76001F542935EB430036DED5 /* Course */,
 				76001F532935EB400036DED5 /* Home */,
+				76F41D63293F344800302332 /* BaceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -128,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				76001F442934988F0036DED5 /* PlaceCell.swift */,
+				76F41D61293F33BE00302332 /* PlaceListView.swift */,
+				76F41D652941996800302332 /* DetailPlaceCell.swift */,
 			);
 			path = Place;
 			sourceTree = "<group>";
@@ -169,6 +180,7 @@
 			children = (
 				76001F502935E3210036DED5 /* CourseDetailViewController.swift */,
 				76001F42293496F00036DED5 /* CreateCourseViewController.swift */,
+				76F41D5F293EFF2C00302332 /* BottomSheetViewController.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -179,13 +191,6 @@
 				76001F5E2935EE240036DED5 /* DetailSidoPlaceListViewController.swift */,
 			);
 			path = Place;
-			sourceTree = "<group>";
-		};
-		761DB6EC293DE0BE003D850A /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		767018F5293057AD004C6298 = {
@@ -228,7 +233,6 @@
 		76701915293070AD004C6298 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				761DB6EC293DE0BE003D850A /* Profile */,
 				76001F5D2935EE0E0036DED5 /* Place */,
 				76001F592935EB990036DED5 /* Home */,
 				76001F5C2935EBBB0036DED5 /* Course */,
@@ -389,7 +393,9 @@
 			files = (
 				76001F5F2935EE240036DED5 /* DetailSidoPlaceListViewController.swift in Sources */,
 				76001F4F2935D1DD0036DED5 /* ContentCollectionViewHeader.swift in Sources */,
+				76F41D62293F33BE00302332 /* PlaceListView.swift in Sources */,
 				7670192D29309F74004C6298 /* RoadmapApi.swift in Sources */,
+				76F41D662941996800302332 /* DetailPlaceCell.swift in Sources */,
 				7670192429309CB4004C6298 /* Course.swift in Sources */,
 				76001F43293496F00036DED5 /* CreateCourseViewController.swift in Sources */,
 				76701902293057AD004C6298 /* AppDelegate.swift in Sources */,
@@ -400,9 +406,11 @@
 				7670192F2930ABB3004C6298 /* HomeViewCell.swift in Sources */,
 				7670191B29308B1D004C6298 /* FavoriteViewController.swift in Sources */,
 				76001F4D29359DB20036DED5 /* Place.swift in Sources */,
+				76F41D60293EFF2C00302332 /* BottomSheetViewController.swift in Sources */,
 				76001F4029347CFC0036DED5 /* CategoryCell.swift in Sources */,
 				7670192929309E1E004C6298 /* Constants.swift in Sources */,
 				76001F3E29346DFE0036DED5 /* Category.swift in Sources */,
+				76F41D64293F344800302332 /* BaceView.swift in Sources */,
 				76001F512935E3210036DED5 /* CourseDetailViewController.swift in Sources */,
 				76001F452934988F0036DED5 /* PlaceCell.swift in Sources */,
 			);

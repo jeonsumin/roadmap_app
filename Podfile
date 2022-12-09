@@ -1,4 +1,4 @@
-# Uncomment the next line to define a global platform for your project
+#Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
 target 'roadmap' do
@@ -6,7 +6,8 @@ target 'roadmap' do
   use_frameworks!
 
   # Pods for roadmap
-pod 'Alamofire'
-pod 'SDWebImage'
-pod 'naveridlogin-sdk-ios'
+  pod 'Alamofire'
+  pod 'SDWebImage'
+  pod 'naveridlogin-sdk-ios'
+  pod 'SnapKit', '~> 5.0.0'
 end

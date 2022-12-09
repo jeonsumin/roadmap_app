@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import SDWebImage
 import Alamofire
-import NaverThirdPartyLogin
+import SafariServices
 
 let courseCellIdentifier = "courseCell"
 let categoryCellIdentifier = "categoryCell"
@@ -20,8 +20,6 @@ let contentHeaderIdentifier = "headerCell"
 class HomeViewController: UICollectionViewController {
    
     //MARK: - Properties
-    let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
-    
     var courseList = [Course]() {
         didSet {
             collectionView.reloadData()
@@ -54,7 +52,6 @@ class HomeViewController: UICollectionViewController {
         button.setImage(UIImage(named: "floating"), for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         button.semanticContentAttribute = .forceRightToLeft
-        button.addTarget(self, action: #selector(tappedNaverLogin), for: .touchUpInside)
         return button
     }()
     
@@ -63,9 +60,6 @@ class HomeViewController: UICollectionViewController {
         super.viewDidLoad()
         
         configureUIComponents()
-        
-        naverLoginInstance?.delegate = self
-        
         
         ///get Data
         getMyCourseList()
@@ -137,23 +131,6 @@ class HomeViewController: UICollectionViewController {
         }
     }
     
-    private func getNaverPlaceList(){
-        
-        guard let accessToken = naverLoginInstance?.isValidAccessTokenExpireTimeNow() else { return }
-        if !accessToken {
-            return
-        }
-        
-        let url = URL(string: "https://map.naver.com/v5/api/bookmark/sync")!
-//        let url = URL(string: "https://openapi.naver.com/v1/nid/me")!
-        AF.request(url,method: .get,parameters: nil,encoding: JSONEncoding.default)
-            .responseJSON { response in
-                guard let body = response.value as? [String:Any] else { return }
-                print("body :: \(body)")
-            }
-    }
-    
-    
     private func layout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { [weak self ] sectionNumber, environment -> NSCollectionLayoutSection? in
             guard let self = self else { return nil }
@@ -172,7 +149,7 @@ class HomeViewController: UICollectionViewController {
     private func courseBannerSecion() -> NSCollectionLayoutSection {
         //itme
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(600))
-        
+    
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 10)
         
@@ -193,16 +170,17 @@ class HomeViewController: UICollectionViewController {
         //item
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = .init(top: 0, leading: 50, bottom: 0, trailing: 0)
+        item.contentInsets = .init(top: 0, leading: 40, bottom: 0, trailing: 0)
         
         
         //group
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(100))
-        
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 5)
+//        group.contentInsets = .init(top: 0, leading: 16, bottom: 0, trailing: 0)
         //section
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = .init(top: 20, leading: 0, bottom: 20, trailing: 0)
+        section.contentInsets = .init(top: 10, leading: 0, bottom: 20, trailing: 0)
+        
         
         section.orthogonalScrollingBehavior = .continuous
     
@@ -248,14 +226,8 @@ class HomeViewController: UICollectionViewController {
     @objc func addCouse(){
         let createViewController = CreateCourseViewController()
         let navVC = UINavigationController(rootViewController: createViewController)
-        navVC.modalPresentationStyle = .overCurrentContext
+        navVC.modalPresentationStyle = .fullScreen
         self.present(navVC, animated: true)
-    }
-    
-    @objc
-    func tappedNaverLogin(){
-        naverLoginInstance?.requestThirdPartyLogin()
-        
     }
     
     private func detailSidoData(sido: String) {
@@ -282,7 +254,7 @@ extension HomeViewController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: contentHeaderIdentifier, for: indexPath) as? ContentCollectionViewHeader else { fatalError("Coud't dequeue Header")}
-            headerView.sectionName.text = "header"
+            headerView.sectionName.text = "지역"
             return headerView
         }else{
             return UICollectionReusableView()
@@ -305,7 +277,7 @@ extension HomeViewController {
             cell.placeName.text = placeList[indexPath.row].placeName
             cell.placeAddress.text = placeList[indexPath.row].placeAddr
             cell.placeMcidName.text = placeList[indexPath.row].placeMcidName
-            let url = URL(string: placeList[indexPath.row].placeThumbnailUrl)
+            let url = URL(string: placeList[indexPath.row].placeThumbnailUrl!)
             
             cell.thumbNailImage.sd_setImage(with: url)
             
@@ -317,6 +289,8 @@ extension HomeViewController {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }
+    
+    // 셀 선택 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -347,34 +321,19 @@ extension HomeViewController {
             
         default:
             //장소 섹션
-            print("2 section in row ", indexPath.row)
+//            https://map.naver.com/v5/entry/place/1754341923?c=127.0422434,37.5245443
+            let placeUrl = "https://map.naver.com/v5/entry/place/\(placeList[indexPath.row].placeCode!)?c=\(placeList[indexPath.row].placePx!),\(placeList[indexPath.row].placePy!)"
+            guard let URL = URL(string: placeUrl) else { return }
+            let safariConfig = SFSafariViewController.Configuration()
+            safariConfig.entersReaderIfAvailable = true
+            
+            let safari = SFSafariViewController(url: URL, configuration: safariConfig)
+            safari.preferredBarTintColor = .white
+            safari.preferredControlTintColor = .systemBlue
+            present(safari,animated: true, completion: nil)
         }
     }
 }
-
-extension HomeViewController: NaverThirdPartyLoginConnectionDelegate {
-    
-    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
-        NSLog("@@@  Naver Login Success @@@")
-    }
-    
-    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
-        print("@@@ Naver Token : %c \(naverLoginInstance?.accessToken!)")
-        getNaverPlaceList()
-    }
-    
-    func oauth20ConnectionDidFinishDeleteToken() {
-        NSLog("@@@ Naver Logout")
-    }
-    
-    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
-        NSLog("@@@ Naver Error : %c ", error.localizedDescription)
-    }
-    
-    
-}
-
-
 
 //MARK: - SwiftUI를 활용한 미리보기
 struct HomeViewController_Previews: PreviewProvider {

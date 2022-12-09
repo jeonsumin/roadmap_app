@@ -17,7 +17,7 @@ class CategoryCell: UICollectionViewCell {
         imgView.clipsToBounds = true
         let url = URL(string: "https://picsum.photos/1920/1084")!
         imgView.sd_setImage(with: url)
-        imgView.layer.cornerRadius = 40
+        imgView.layer.cornerRadius = 35
         
         return imgView
     }()
@@ -46,8 +46,8 @@ class CategoryCell: UICollectionViewCell {
         self.addSubview(categoryTitle)
         
         bgImageView.translatesAutoresizingMaskIntoConstraints = false
-        bgImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        bgImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        bgImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        bgImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
         bgImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         bgImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
 
