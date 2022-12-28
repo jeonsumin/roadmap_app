@@ -10,4 +10,6 @@ target 'roadmap' do
   pod 'SDWebImage'
   pod 'naveridlogin-sdk-ios'
   pod 'SnapKit', '~> 5.0.0'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end
